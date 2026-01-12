@@ -9,11 +9,10 @@ ____    __    ____  _______  __        ______   ______   .___  ___.  _______
 */
 
 //=============== LED SECTION ===================//
-#define LED_PIN //Make sure this pin has PWM support
-#define LED_NUM //How many LEDs are you using?
+#define LED_PIN 13//Make sure this pin has PWM support
+#define LED_NUM 174//How many LEDs are you using?
 #define LED_TYPE WS2812B
 #define COLOR_ORDER GRB
-
 
 //=============== MODE SECTION ==================//
 #define DARK 
@@ -23,9 +22,9 @@ ____    __    ____  _______  __        ______   ______   .___  ___.  _______
 
 
 //=============== RAINBOW MODE ==================//
-#define RAINBOW_BRIGHTNESS 128 // 0 - 255
+#define RAINBOW_BRIGHTNESS 80 // 0 - 255
 #define RAINBOW_SPEED 10
-#define RAINBOW_DELTAHUE 10
+#define RAINBOW_DELTAHUE 3
 //#define RAINBOW_WAVE
 #define RAINBOW_MARCH
 
@@ -39,8 +38,8 @@ const uint8_t EEPROM_VERSION_ADDR = 0;  // Use address 0 for our version flag
 const uint8_t EEPROM_MODE_ADDR    = 1;  // Address for your mode variable
 
 // --- Default Values ---
-const uint8_t FIRSTRUN_FLAG = 0xAB;    // A unique value (like 0xAB) for the flag
-const uint8_t DEFAULT_MODE   = 0; // means off
+const uint8_t FIRSTRUN_FLAG = 0xAC;    // A unique value (like 0xAB) for the flag
+const uint8_t DEFAULT_MODE  = 1 ;
 
 //=============== ERROR CHECKING ==================//
 #if !defined(RAINBOW) && ((defined(RAINBOW_WAVE) || defined(RAINBOW_MARCH)))
