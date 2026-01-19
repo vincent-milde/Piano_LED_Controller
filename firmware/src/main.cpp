@@ -12,38 +12,6 @@
 #include "config.h"
 #include "custom_types.h"
 
-//============ Global variables ============//
-CRGB leds[LED_NUM];
-
-uint8_t eeprom_mode_index = 0;
-light_mode_t currentMode = MODE_OFF;
-
-// Init mode arrays
-light_mode_t availableModes[MODE_COUNT] = {
-  #ifdef DARK
-    MODE_OFF
-  #endif
-  #ifdef RAINBOW
-    ,MODE_RAINBOW
-  #endif
-  #ifdef PIANO_VISUALIZER
-    ,MODE_PIANO_VISUALIZER
-  #endif
-};
-
-//============ Methods ===================//
-void rainbow_mode(uint8_t speed, uint8_t deltaHue){
-  #ifdef RAINBOW_WAVE
-    uint8_t currentHue = beatsin8(speed, deltaHue) ;
-  #elif defined (RAINBOW_MARCH)
-    uint8_t currentHue = beat8(speed, deltaHue);
-  #else
-    #error "NO WAVE TYPE DEFINED"
-  #endif
-
-  fill_rainbow(leds, LED_NUM, currentHue, deltaHue);   
-}
-
 //============ Setup and Loop ============//
 
 void setup() {

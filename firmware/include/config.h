@@ -1,3 +1,9 @@
+#pragma once
+#include "custom_types.h"
+#include "mode_interface.h"
+#include "off_mode.h"
+#include "rainbow_mode.h"
+
 /*
 ____    __    ____  _______  __        ______   ______   .___  ___.  _______
 \   \  /  \  /   / |   ____||  |      /      | /  __  \  |   \/   | |   ____|
@@ -9,26 +15,43 @@ ____    __    ____  _______  __        ______   ______   .___  ___.  _______
 */
 
 //=============== General config =====================//
+#define VERSION 0001
+
+//============ Supported LEDs===================//
+#define WS2812B 0
 
 //=============== LED SECTION ===================//
 #define LED_PIN 13//Make sure this pin has PWM support
 #define LED_NUM 174//How many LEDs are you using?
 #define LED_TYPE WS2812B
-#define COLOR_ORDER GRB
 
-//=============== MODE SECTION ==================//
-#define DARK 
-#define RAINBOW
-//#define PIANO_VISUALIZER
 
-//=============== RAINBOW MODE ==================//
-#define RAINBOW_BRIGHTNESS 80 // 0 - 255
-#define RAINBOW_SPEED 10
-#define RAINBOW_DELTAHUE 3
-//#define RAINBOW_WAVE
-#define RAINBOW_MARCH
+//=============== FASTLED Section ==================//
+  #if (LED_TYPE == WS2812B) 
+    CRGB leds[LED_NUM];
+  #endif
 
-//=============== PIANO VISUALIZER MODE ===============//
+//=============== MODE SECTION ===================//
+/**
+ * 
+ * @example
+ * //init custom modes 
+ * Rainbow
+ * ModeInterface modes [] = {
+ *       
+ * }
+ * 
+ */
+OffMode of1 ;
+RainbowMode rb1(leds,LED_NUM,
+  {
+    .rainbow_brightness = 50;
+  }
+);
+
+ModeInterface modes [] = {
+
+}
 
 
 
@@ -49,12 +72,7 @@ const uint8_t DEFAULT_MODE  = 1 ;
 #if defined(RAINBOW_WAVE) && defined(RAINBOW_MARCH)
   #error "You can only enable one rainbow effect at a time!"
 #endif
-#if MODE_COUNT < 1
-  #error "You must enable at least one mode!"
-#endif
-#if MODE_COUNT > 3
-  #error "You have enabled more modes than are available!"
-#endif
+
 #ifndef LED_PIN
   #error "You must define an LED_PIN!"
 #endif
