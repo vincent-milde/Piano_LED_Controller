@@ -11,9 +11,9 @@ typedef enum{
 }rainbow_mode_t;
 
 typedef struct{
-    bool direction = false ;          //L to R = false ; R to L = true ;
-    int rainbow_brightness = 80 ;    // 0 - 255
-    int rainbow_speed = 10   ;       //How fast the rainbow moves 
-    int rainbow_deltahue = 3 ;       //how many rainbow periods
-    rainbow_mode_t mode = RAINBOW_SAW_TOOTH;
+    bool direction;          //L to R = false ; R to L = true ;
+    int rainbow_brightness ;    // 0 - 255
+    int rainbow_speed ;       //How fast the rainbow moves 
+    int rainbow_deltahue;       //how many rainbow periods
+    rainbow_mode_t mode ;
 }rainbow_mode_config_t;
