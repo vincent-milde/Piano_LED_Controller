@@ -44,7 +44,7 @@ ModeInterface *modes[] = {
 
 const int modeCount = sizeof(modes) / sizeof(modes[0]);
 
-int current_mode_index = 1 ;
+int current_mode_index = 0 ;
 
 //============ Setup and Loop ============//
 
@@ -52,7 +52,7 @@ void setup() {
   Serial.begin(9600);
   delay(100); 
   Serial.println("booting...");
-  FastLED.addLeds<WS2812B, LED_PIN, GRB>(leds, LED_NUM);
+  FastLED.addLeds<LED_TYPE, LED_PIN, GRB>(leds, LED_NUM);
   FastLED.clear();
   FastLED.show();
 }

@@ -17,7 +17,6 @@ ____    __    ____  _______  __        ______   ______   .___  ___.  _______
 #define VERSION 0001
 
 //============ Supported LEDs===================//
-#define WS2812B 0
 
 //=============== LED SECTION ===================//
 #define LED_PIN 14//Make sure this pin has PWM support
@@ -26,10 +25,7 @@ ____    __    ____  _______  __        ______   ______   .___  ___.  _______
 
 
 //=============== FASTLED Section ==================//
-  #if (LED_TYPE == WS2812B) 
-    extern CRGB leds[LED_NUM];
-  #endif
-
+extern CRGB leds[LED_NUM];
 extern ModeInterface *modes[];
 extern const int modeCount;
 
