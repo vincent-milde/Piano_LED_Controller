@@ -17,5 +17,4 @@ void RainbowMode::worker(){
   else if(_cfg.mode == RAINBOW_SAW_TOOTH)
     currentHue = beat8(_cfg.rainbow_speed, _cfg.rainbow_deltahue);
   fill_rainbow(_leds, _led_amount, currentHue, _cfg.rainbow_deltahue);   
-  FastLED.show();  
 }

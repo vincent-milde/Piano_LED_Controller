@@ -52,9 +52,12 @@ void setup() {
   Serial.begin(9600);
   delay(100); 
   Serial.println("booting...");
+  FastLED.addLeds<WS2812B, LED_PIN, GRB>(leds, LED_NUM);
   FastLED.clear();
+  FastLED.show();
 }
 void loop() {
   // Check if data is available to read
   modes[current_mode_index]->worker() ;
+  FastLED.show();  
 }
