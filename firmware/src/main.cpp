@@ -52,6 +52,7 @@ void setup() {
   Serial.begin(9600);
   delay(100); 
   Serial.println("booting...");
+  FastLED.clear();
 }
 void loop() {
   // Check if data is available to read
