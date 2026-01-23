@@ -3,7 +3,10 @@
 #include "custom_types.h"
 
 class PianoVisualizer : public ModeInterface {
-public:
-    PianoVisualizer();
-    void worker() override;
+    private: 
+        light_mode_t _mode = light_mode_t::MODE_PIANO_VISUALIZER ;
+    public:
+        PianoVisualizer() ;
+        void worker() override ;
+        light_mode_t getMode() override ;
 };

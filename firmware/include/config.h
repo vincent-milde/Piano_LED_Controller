@@ -17,7 +17,7 @@ ____    __    ____  _______  __        ______   ______   .___  ___.  _______
 #define VERSION 0001
 
 //============ Supported LEDs===================//
-
+#define WS2812B
 //=============== LED SECTION ===================//
 #define LED_PIN 14//Make sure this pin has PWM support
 #define LED_NUM 174//How many LEDs are you using?

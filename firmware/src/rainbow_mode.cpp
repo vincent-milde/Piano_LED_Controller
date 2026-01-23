@@ -6,7 +6,6 @@ RainbowMode:: RainbowMode(CRGB *leds,int led_amount, const rainbow_mode_config_t
  :  _leds(leds),
     _led_amount(led_amount),
     _cfg(cfg) //default init in custom_types.h
-   
 {
     Serial.println("Rainbow mode initialized...");
 }  
@@ -17,4 +16,7 @@ void RainbowMode::worker(){
   else if(_cfg.mode == RAINBOW_SAW_TOOTH)
     currentHue = beat8(_cfg.rainbow_speed, _cfg.rainbow_deltahue);
   fill_rainbow(_leds, _led_amount, currentHue, _cfg.rainbow_deltahue);   
+}
+light_mode_t RainbowMode::getMode(){
+  return _mode ;
 }

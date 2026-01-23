@@ -17,3 +17,10 @@ typedef struct{
     int rainbow_deltahue;       //how many rainbow periods
     rainbow_mode_t mode ;
 }rainbow_mode_config_t;
+
+enum light_mode_t{
+    MODE_OFF,
+    MODE_COLOUR,
+    MODE_RAINBOW,
+    MODE_PIANO_VISUALIZER
+};

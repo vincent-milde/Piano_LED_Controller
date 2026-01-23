@@ -3,5 +3,7 @@
 
 void OffMode::worker() {
     FastLED.clear();
-    FastLED.show() ;
+}
+light_mode_t OffMode::getMode() {
+    return _mode;
 }
