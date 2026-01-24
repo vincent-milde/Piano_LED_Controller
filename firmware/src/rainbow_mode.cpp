@@ -1,7 +1,12 @@
 #include "rainbow_mode.h"
-#include "config.h"
 #include <FastLED.h>
 
+/**
+ * @brief Constructor method,  
+ * @param leds Default led-array from FastLED
+ * @param led_amount Amount of leds
+ * @param cfg Config may be changed, default value is implemented
+ */
 RainbowMode:: RainbowMode(CRGB *leds,int led_amount, const rainbow_mode_config_t& cfg)
  :  _leds(leds),
     _led_amount(led_amount),
@@ -9,6 +14,9 @@ RainbowMode:: RainbowMode(CRGB *leds,int led_amount, const rainbow_mode_config_t
 {
     Serial.println("Rainbow mode initialized...");
 }  
+/**
+ * @brief Call this function in the loop
+ */
 void RainbowMode::worker(){
   uint8_t currentHue;
   if(_cfg.mode == RAINBOW_SINE_WAVE)

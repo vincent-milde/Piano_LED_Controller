@@ -1,8 +1,7 @@
 #include "piano_visualizer.h"
-
+#include "EspUsbHost.h"
 PianoVisualizer::PianoVisualizer() {}
 
 void PianoVisualizer::worker() {
-    // Implement piano visualizer logic here
-    // For now, just a placeholder
+                    
 }
